@@ -7,12 +7,13 @@ class Input extends Component {
 			todo: "",
 			error: false
 		}
+
 		this.onTaskInput = this.onTaskInput.bind(this);
 	}
 
 	onTaskInput(){
 		if(this.state.todo !== ""){
-			
+
 		} else {
 			this.setState({error: true});
 		}
@@ -20,24 +21,31 @@ class Input extends Component {
 
 	render() {
 		return (
-			<div className="todo-input">
-				<input
-					className="input"
-					value={this.state.todo} 
-					onChange={(event) => { this.setState({todo: event.target.value}); }}
-					onKeyPress={(event) => {
-						if((event.keyCode || event.which) === 13){
+			<div className="todo-input-body">
+				<div className="todo-input-group">
+					<input
+						className="todo-input"
+						value={this.state.todo} 
+						onChange={(event) => { this.setState({todo: event.target.value}); }}
+						onKeyPress={(event) => {
+							if((event.keyCode || event.which) === 13){
+								this.onTaskInput();
+							}
+						}}
+					/>
+					<button
+						className="btn-todo"
+						onClick={(event) => {
+							event.preventDefault();
 							this.onTaskInput();
-						}
-					}}
-				/>
-				<button
-					className=""
-					onClick={(event) => {
-						event.preventDefault();
-						this.onTaskInput();
-					}}>
-				</button>
+						}}>
+					</button>
+				</div>
+				{this.state.error &&
+					<div className="error-msg">
+						<p>You have not given anything to do.</p>
+					</div>
+				}	
 			</div>
 		);
 	}
