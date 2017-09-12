@@ -8,8 +8,14 @@ class ToDo extends Component {
 		this.state = { status: false };
 	}
 
+	componentDidMount() {
+		this.setState({status: this.props.todo.status}, () => console.log(this.state));
+	}
+
 	componentWillReceiveProps(nextProps) {
-		this.setState({status: nextProps.todo.status});
+		//debugger
+			this.setState({status: nextProps.todo.status}, () => console.log(this.state));
+		
 	}
 
 	render() {
@@ -30,7 +36,7 @@ class ToDo extends Component {
 						<input 
 							className="task-checkbox" 
 							type="checkbox"
-							value={status}
+							checked={this.state.status}
 							onChange={(event) => { this.props.updateTaskStatus(this.props.index, event.target.checked); }} 
 						/>
 						<label className="status-label">complete</label>

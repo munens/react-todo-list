@@ -21,6 +21,11 @@ class App extends Component {
         />
         <ToDoItems
           todo_items={todo_items}
+          clearComplete={() => { 
+            let incomplete_todo_items = todo_items.filter((todo, index) => { return todo.status === false ? todo: null; });
+            console.log(incomplete_todo_items, todo_items)
+            this.setState({todo_items: incomplete_todo_items});
+          }}
           updateTaskStatus={(index, value) => {
             todo_items[index].status = value;
             this.setState({todo_items});
