@@ -21,6 +21,10 @@ class App extends Component {
         />
         <ToDoItems
           todo_items={todo_items}
+          updateTaskStatus={(index, value) => {
+            todo_items[index].status = value;
+            this.setState({todo_items});
+          }}
         />
         
       </div>

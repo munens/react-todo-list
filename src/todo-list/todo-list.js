@@ -15,9 +15,11 @@ class ToDoItems extends Component {
 				<div className="todo-items-body">
 					{todo_items.map((todo, index) => {
 						return(
-							<ToDo 
+							<ToDo
 								key={index}
+								index={index}
 								todo={todo}
+								updateTaskStatus={this.props.updateTaskStatus}
 							/>
 						);
 					})}
