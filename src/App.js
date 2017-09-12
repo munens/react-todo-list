@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './todo-input/input';
+import ToDoItems from './todo-list/todo-list';
 import './App.css';
 
 class App extends Component {
@@ -17,6 +18,9 @@ class App extends Component {
             todo_items.push(item);
             this.setState({todo_items});
           }}
+        />
+        <ToDoItems
+          todo_items={todo_items}
         />
         
       </div>
