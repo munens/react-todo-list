@@ -3,14 +3,25 @@ import React, { Component } from 'react';
 class ToDo extends Component {
 	constructor(props){
 		super(props);
-		this.state = {};
+		this.state = { completed: false };
+	}
+
+	componentDidMount() {
+		
+	}
+
+	componentWillReceiveProps(nextProps) {
+		
 	}
 
 	render() {
+		const todo = this.props.todo;
 		return (
 			<div className="todo-item">
-				<div>
-					
+				<div className="todo-body">
+					<div className="todo-text">
+						<p>{todo}</p>
+					</div>
 				</div>
 			</div>
 		);
