@@ -9,10 +9,10 @@ class Input extends Component {
 			error: false
 		};
 
-		this.onTaskInput = this.onTaskInput.bind(this);
+		this.onTaskInputSubmit = this.onTaskInputSubmit.bind(this);
 	}
 
-	onTaskInput(){
+	onTaskInputSubmit(){
 		if(this.state.task !== ""){
 			const todo = {task: this.state.task, status: false, date: Date.now()};
 			this.props.addToDo(todo);
@@ -24,32 +24,37 @@ class Input extends Component {
 
 	render() {
 		return (
-			<div className="todo-input-body">
+			<div className="todo-input">
 				<div className="task-input-group">
-					<input
-						className="task-input"
-						placeholder="what would you like to do?"
-						value={this.state.task} 
-						onChange={(event) => { this.setState({task: event.target.value}); }}
-						onKeyPress={(event) => {
-							if((event.keyCode || event.which) === 13){
-								this.onTaskInput();
-							}
-						}}
-					/>
-					<button
-						className="btn-task"
-						onClick={(event) => {
-							event.preventDefault();
-							this.onTaskInput();
-						}}>add
-					</button>
-				</div>
-				{this.state.error &&
-					<div className="error-msg">
-						<p>You have not given anything to do.</p>
+					<div className="task-input">
+						<input
+							className={`input ${this.state.error ? 'error' : '' }`}
+							placeholder="what would you like to do?"
+							value={this.state.task} 
+							onChange={(event) => { this.setState({task: event.target.value}); }}
+							onKeyPress={(event) => {
+								this.setState({error: false});
+								if((event.keyCode || event.which) === 13){
+									this.onTaskInputSubmit();
+								}
+							}}
+						/>
+						{this.state.error &&
+							<div className="error-msg">
+								<p className="error-text">You have not given anything to do.</p>
+							</div>
+						}
 					</div>
-				}	
+					<div className="task-button">
+						<button
+							className="btn-submit"
+							onClick={(event) => {
+								event.preventDefault();
+								this.onTaskInputSubmit();
+							}}>add
+						</button>
+					</div>
+				</div>
 			</div>
 		);
 	}

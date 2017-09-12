@@ -11,7 +11,7 @@ class ToDoItems extends Component {
 	render() {
 		const todo_items = this.props.todo_items;
 		return (
-			<div style={todo_items.length < 4 ? {height: 300} : {height: 300 + (todo_items.length - 3)*(50)}} className="todo-items-frame">
+			<div style={todo_items.length === 0 ? {height: 300} : {height: 300 + (todo_items.length)*(60)}} className="todo-items-frame">
 				<div className="todo-items-body">
 					{todo_items.map((todo, index) => {
 						return(
