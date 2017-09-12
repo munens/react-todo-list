@@ -4,16 +4,18 @@ class Input extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			todo: "",
+			task: "",
 			error: false
-		}
+		};
 
 		this.onTaskInput = this.onTaskInput.bind(this);
 	}
 
 	onTaskInput(){
-		if(this.state.todo !== ""){
-
+		if(this.state.task !== ""){
+			const todo = {task: this.state.task, status: false, date: Date.now()};
+			this.props.addToDo(todo);
+			this.setState({todo: ""});
 		} else {
 			this.setState({error: true});
 		}
@@ -22,11 +24,11 @@ class Input extends Component {
 	render() {
 		return (
 			<div className="todo-input-body">
-				<div className="todo-input-group">
+				<div className="task-input-group">
 					<input
-						className="todo-input"
-						value={this.state.todo} 
-						onChange={(event) => { this.setState({todo: event.target.value}); }}
+						className="task-input"
+						value={this.state.task} 
+						onChange={(event) => { this.setState({task: event.target.value}); }}
 						onKeyPress={(event) => {
 							if((event.keyCode || event.which) === 13){
 								this.onTaskInput();
@@ -34,11 +36,11 @@ class Input extends Component {
 						}}
 					/>
 					<button
-						className="btn-todo"
+						className="btn-task"
 						onClick={(event) => {
 							event.preventDefault();
 							this.onTaskInput();
-						}}>
+						}}>add
 					</button>
 				</div>
 				{this.state.error &&

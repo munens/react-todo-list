@@ -14,8 +14,8 @@ class App extends Component {
     return (
       <div className="App">
         <Input 
-          addItem={(item) => {
-            todo_items.push(item);
+          addToDo={(todo) => {
+            todo_items.push(todo);
             this.setState({todo_items});
           }}
         />

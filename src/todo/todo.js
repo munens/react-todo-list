@@ -20,7 +20,7 @@ class ToDo extends Component {
 			<div className="todo-item">
 				<div className="todo-body">
 					<div className="todo-text">
-						<p>{todo}</p>
+						<p>{todo.task}</p>
 					</div>
 				</div>
 			</div>
