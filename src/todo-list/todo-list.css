@@ -1,0 +1,12 @@
+.todo-items-frame {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	background: #f1f1f1;
+	box-shadow: -1px -1px 1px #d2d2d2;
+}
+
+.todo-items-body {
+	padding: 20px;
+}

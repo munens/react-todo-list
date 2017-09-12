@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './input.css';
 
 class Input extends Component {
 	constructor(props){
@@ -15,7 +16,7 @@ class Input extends Component {
 		if(this.state.task !== ""){
 			const todo = {task: this.state.task, status: false, date: Date.now()};
 			this.props.addToDo(todo);
-			this.setState({todo: ""});
+			this.setState({task: ""});
 		} else {
 			this.setState({error: true});
 		}
@@ -27,6 +28,7 @@ class Input extends Component {
 				<div className="task-input-group">
 					<input
 						className="task-input"
+						placeholder="what would you like to do?"
 						value={this.state.task} 
 						onChange={(event) => { this.setState({task: event.target.value}); }}
 						onKeyPress={(event) => {
