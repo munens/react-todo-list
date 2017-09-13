@@ -23,7 +23,6 @@ class App extends Component {
           todo_items={todo_items}
           clearComplete={() => { 
             let incomplete_todo_items = todo_items.filter((todo, index) => { return todo.status === false ? todo: null; });
-            console.log(incomplete_todo_items, todo_items)
             this.setState({todo_items: incomplete_todo_items});
           }}
           updateTaskStatus={(index, value) => {
@@ -31,7 +30,6 @@ class App extends Component {
             this.setState({todo_items});
           }}
         />
-        
       </div>
     );
   }

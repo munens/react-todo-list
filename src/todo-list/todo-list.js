@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import  ToDo  from '../todo/todo';
+import ToDo from '../todo/todo';
 import ConfigBar from './config-bar';
 import './todo-list.css';
 
 class ToDoItems extends Component {
 	constructor(props){
 		super(props);
-		this.state = {
-			filter_type: 'all'
-		};
+		this.state = { filter_type: 'all' };
 	}
 
 	render() {
@@ -21,7 +19,7 @@ class ToDoItems extends Component {
 				<ConfigBar 
 					completed_todo_items={completed_todo_items}
 					clearComplete={this.props.clearComplete}
-					updateFilter={(filter_type) => {console.log(filter_type); this.setState({filter_type})}}
+					updateFilter={(filter_type) => this.setState({filter_type})}
 				/>
 				<div className="todo-items-body">
 					{filter_type === 'all' && todo_items.length === 0 && 
@@ -72,7 +70,6 @@ class ToDoItems extends Component {
 								);
 							} 
 						}
-						
 					})}
 				</div>
 			</div>

@@ -4,11 +4,7 @@ import './input.css';
 class Input extends Component {
 	constructor(props){
 		super(props);
-		this.state = {
-			task: "",
-			error: false
-		};
-
+		this.state = { task: "", error: false };
 		this.onTaskInputSubmit = this.onTaskInputSubmit.bind(this);
 	}
 
