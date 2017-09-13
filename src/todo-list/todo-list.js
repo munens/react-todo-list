@@ -24,7 +24,7 @@ class ToDoItems extends Component {
 					updateFilter={(filter_type) => {console.log(filter_type); this.setState({filter_type})}}
 				/>
 				<div className="todo-items-body">
-					{todo_items.length === 0 &&
+					{filter_type === 'all' && todo_items.length === 0 && 
 						<div className="no-items-text">
 							<p className="text no-items">There are no to-do items to show at this time.</p>
 						</div>
@@ -34,9 +34,9 @@ class ToDoItems extends Component {
 							<p className="text no-items">There are no completed to do items to show at this time.</p>
 						</div>
 					}
-					{filter_type === 'incomplete' && incomplete_todo_items.length === 0 &&
+					{filter_type === 'incomplete' && incomplete_todo_items.length === 0 && 
 						<div className="no-items-text">
-							<p className="text no-items">All to do items are complete :)</p>
+							<p className="text no-items">{completed_todo_items.length > 0 ? 'All to do items are complete :)' : 'There are no incomplete to do items to show at this time.'}</p>
 						</div>
 					}
 					{todo_items.length > 0 && todo_items.map((todo, index) => {
