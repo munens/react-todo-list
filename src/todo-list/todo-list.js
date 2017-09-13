@@ -59,7 +59,7 @@ class ToDoItems extends Component {
 										updateTaskStatus={this.props.updateTaskStatus}
 									/>
 								);
-							}
+							} 
 						}
 						
 					})}

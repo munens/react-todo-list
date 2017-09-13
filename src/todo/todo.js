@@ -31,13 +31,15 @@ class ToDo extends Component {
 						</div>
 					</div>
 					<div className="task-status">
-						<input 
-							className="task-checkbox" 
-							type="checkbox"
-							checked={this.state.status}
-							onChange={(event) => { this.props.updateTaskStatus(this.props.index, event.target.checked); }} 
-						/>
-						<label className="status-label">complete</label>
+						<div className="task-status-group">
+							<p className="text done">{status && 'done!'}</p>
+							<input 
+								className="task-checkbox" 
+								type="checkbox"
+								checked={this.state.status}
+								onChange={(event) => { this.props.updateTaskStatus(this.props.index, event.target.checked); }} 
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
