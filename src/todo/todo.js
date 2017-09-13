@@ -27,7 +27,7 @@ class ToDo extends Component {
 							<p className={`text ${status ? 'complete' : ''}`} >{todo.task}</p>
 						</div>
 						<div className="todo-date">
-							<p className="date">{moment(todo.date).format('MMMM Do, h:mm a')}</p>
+							<p className="date">{moment(todo.date).format('h:mm:ss a')}</p>
 						</div>
 					</div>
 					<div className="task-status">

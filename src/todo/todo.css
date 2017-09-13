@@ -3,6 +3,7 @@
 	background: white;
 	height: 50px;
 	box-shadow: 1px 1px 1px rgb(189, 189, 189);
+	border-radius: 2px;
 }
 
 .task-info {
@@ -40,6 +41,7 @@
 	margin-top: 0px;
 	margin-bottom: 0px;
 	color: #565656;
+	font-weight: 100;
 }
 
 .text.complete {
