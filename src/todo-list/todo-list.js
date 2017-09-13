@@ -17,7 +17,7 @@ class ToDoItems extends Component {
 		const completed_todo_items = todo_items.filter((todo, index) => { return todo.status ? todo : null; });
 		const incomplete_todo_items = todo_items.filter((todo, index) => { return !todo.status ? todo : null; });
 		return (
-			<div style={todo_items.length === 0 ? {height: 300} : {height: 300 + (todo_items.length)*(60)}} className="todo-items-frame">
+			<div style={todo_items.length < 7 ? {height: 450} : {height: 450 + (todo_items.length - 6)*(65)}} className="todo-items-frame">
 				<ConfigBar 
 					completed_todo_items={completed_todo_items}
 					clearComplete={this.props.clearComplete}
