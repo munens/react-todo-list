@@ -2,11 +2,80 @@
 	width: 95%;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	display: block;
-	background: #f1f1f1;
-	box-shadow: -1px -1px 1px #d2d2d2;
+	background: rgba(241, 241, 241, 0.7);
+	box-shadow: inset 1px -1px 1px #d2d2d2;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 
 .todo-items-body {
 	padding: 20px;
+}
+
+.no-items-text {
+	width: 330px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+.config-bar {
+	height: 35px;
+	width: 100%;
+	background: #353535;
+	box-shadow: 1px 1px 1px #7b7b7b;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.config-bar-items {
+	height: 100%;
+}
+
+.clear-button {
+	width: 120px;
+	float: left;
+	padding: 3px;
+}
+
+.btn-clear {
+	width: 90%;
+	height: 29px;
+	border-radius: 3px;
+	border: 1px solid #d4d4d4;
+	background: #353535;
+	color: #d4d4d4;
+}
+
+.btn-clear.disabled {
+	border: 1px solid #7d7d7d;
+	color: #7d7d7d;
+}
+
+
+.filter {
+	float: right;
+	width: 150px;
+	padding: 3px;
+}
+
+.filter-group {
+	width: 100%;
+}
+
+.filter-label {
+	color: #d4d4d4;
+	font-weight: 100;
+	display: inline-block;
+	font-size: 13px;
+}
+
+.filter-select {
+	height: 29px;
+	background: #353535;
+	color: #d4d4d4;
+	margin-left: 5px;
+	display: inline-block;
 }

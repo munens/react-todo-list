@@ -9,13 +9,11 @@ class ToDo extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({status: this.props.todo.status}, () => console.log(this.state));
+		this.setState({status: this.props.todo.status});
 	}
 
 	componentWillReceiveProps(nextProps) {
-		//debugger
-			this.setState({status: nextProps.todo.status}, () => console.log(this.state));
-		
+		this.setState({status: nextProps.todo.status});
 	}
 
 	render() {
