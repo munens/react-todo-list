@@ -12,9 +12,10 @@ class ToDoItems extends Component {
 	}
 
 	render() {
+		const filter_type = this.state.filter_type;
 		const todo_items = this.props.todo_items;
 		const completed_todo_items = todo_items.filter((todo, index) => { return todo.status ? todo : null; });
-		//console.log(completed_todo_items, todo_items.length === 0, (completed_todo_items && completed_todo_items.length > 0));
+		const incomplete_todo_items = todo_items.filter((todo, index) => { return !todo.status ? todo : null; });
 		return (
 			<div style={todo_items.length === 0 ? {height: 300} : {height: 300 + (todo_items.length)*(60)}} className="todo-items-frame">
 				<ConfigBar 
@@ -25,7 +26,17 @@ class ToDoItems extends Component {
 				<div className="todo-items-body">
 					{todo_items.length === 0 &&
 						<div className="no-items-text">
-							<p className="text">There are no to-do items to show at this time.</p>
+							<p className="text no-items">There are no to-do items to show at this time.</p>
+						</div>
+					}
+					{filter_type === 'completed' && completed_todo_items.length === 0 &&
+						<div className="no-items-text">
+							<p className="text no-items">There are no completed to do items to show at this time.</p>
+						</div>
+					}
+					{filter_type === 'incomplete' && incomplete_todo_items.length === 0 &&
+						<div className="no-items-text">
+							<p className="text no-items">All to do items are complete :)</p>
 						</div>
 					}
 					{todo_items.length > 0 && todo_items.map((todo, index) => {
